@@ -4,7 +4,7 @@ async function handleLogin() {
     const email = document.getElementById('email').value;
 
     // 2. gui value from client to serve
-    const response = await axios.post('http://localhost:5000/api/auth/login', {
+    const response = await axios.post('api/auth/login', {
         email: email,
         password: password,
     });

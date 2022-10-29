@@ -6,7 +6,7 @@ async function handleRegister() {
         const password = document.getElementById('password').value;
         // 2. gui value from client to serve
 
-        const response = await axios.post('http://localhost:5000/api/auth/register', {
+        const response = await axios.post('api/auth/register', {
             username: username,
             email: email,
             password: password

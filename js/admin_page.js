@@ -6,7 +6,7 @@ async function getListUser() {
                 Authorization: `Bearer ${localStorage.getItem('access_token')}`
             }
         };
-        const response = await axios.get('http://localhost:5000/auth/admin/user', configHeader); 
+        const response = await axios.get('auth/admin/user', configHeader); 
         showListUser(response);
 
     } catch (error) {
