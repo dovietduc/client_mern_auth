@@ -10,9 +10,10 @@ async function getListUser() {
         showListUser(response);
 
     } catch (error) {
-        // errror
-        // call refresh token
-        // token expired->redirect to admin
+        // solution 1
+        if(error.response.status === 401) {
+            window.location.href = '/login.html';
+        }
     }
     
 }
