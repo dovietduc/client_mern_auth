@@ -7,7 +7,7 @@ async function handleSubmitAddUser() {
        const role = document.getElementById('role').value;
        // 2. gui value from client to serve
 
-       const response = await axios.post('api/auth/user/create', {
+       const response = await axios.post('auth/admin/user/create', {
            username: username,
            email: email,
            password: password,
