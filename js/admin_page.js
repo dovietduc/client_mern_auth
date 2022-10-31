@@ -47,4 +47,8 @@ function showListUser(response) {
     
 }
 
+function handleAddUser() {
+    window.location.href = '/create_user.html';
+}
+
 getListUser();
