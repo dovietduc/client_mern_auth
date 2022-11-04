@@ -1,12 +1,7 @@
 async function getListUser() {
     try {
        // call api get list user
-        const configHeader = {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('access_token')}`
-            }
-        };
-        const response = await axios.get('auth/admin/user', configHeader); 
+        const response = await axios.get('auth/admin/user'); 
         showListUser(response);
 
     } catch (error) {
@@ -37,7 +32,7 @@ function showListUser(response) {
                         <td>${user.role}</td>
                         <td>${user.email}</td>
                         <td>
-                            Delete
+                            <button id="${user._id}" type="button" class="btn btn-danger" onclick="handleDeleteUser(this.id)">Delete</button>
                         </td>
                     </tr>`
     });
@@ -45,6 +40,19 @@ function showListUser(response) {
                 </table>`;
     document.querySelector('.list_user').innerHTML = htmlUser;
     
+}
+
+async function handleDeleteUser(userId) {
+    try {
+        // call api get list user
+        const response = await axios.delete(`auth/admin/user/delete/${userId}`); 
+
+     } catch (error) {
+        // solution 1
+        if(error.response.status === 401) {
+            window.location.href = '/login.html';
+        }
+     }
 }
 
 function handleAddUser() {
